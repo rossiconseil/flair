@@ -111,7 +111,7 @@ class SequenceTagger(flair.nn.Model):
 
         self.trained_epochs: int = 0
 
-        self.embeddings = embeddings
+        SequenceTagger.embeddings = embeddings
 
         # set the dictionaries
         self.tag_dictionary: Dictionary = tag_dictionary
@@ -231,7 +231,7 @@ class SequenceTagger(flair.nn.Model):
     def _get_state_dict(self):
         model_state = {
             "state_dict": self.state_dict(),
-            "embeddings": self.embeddings,
+            # "embeddings": self.embeddings,
             "hidden_size": self.hidden_size,
             "train_initial_hidden_state": self.train_initial_hidden_state,
             "tag_dictionary": self.tag_dictionary,
@@ -273,9 +273,14 @@ class SequenceTagger(flair.nn.Model):
         if "reproject_to" in state.keys():
             reproject_embeddings = state["reproject_to"]
 
+        if hasattr(SequenceTagger, 'embeddings'):
+            embeddings = SequenceTagger.embeddings
+        else:
+            embeddings = state["embeddings"]
+
         model = SequenceTagger(
             hidden_size=state["hidden_size"],
-            embeddings=state["embeddings"],
+            embeddings=embeddings,
             tag_dictionary=state["tag_dictionary"],
             tag_type=state["tag_type"],
             use_crf=state["use_crf"],
