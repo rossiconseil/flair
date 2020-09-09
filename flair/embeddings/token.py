@@ -425,7 +425,7 @@ class FlairEmbeddings(TokenEmbeddings):
         cache_dir = Path("embeddings")
 
         aws_path: str = "https://s3.eu-central-1.amazonaws.com/alan-nlp/resources"
-        hu_path: str = "https://flair.informatik.hu-berlin.de/resources"
+        hu_path: str = "https://flair.informatik.hu-berlin.de/resources/embeddings/flair"
         clef_hipe_path: str = "https://files.ifi.uzh.ch/cl/siclemat/impresso/clef-hipe-2020/flair"
 
         self.PRETRAINED_MODEL_ARCHIVE_MAP = {
@@ -491,8 +491,8 @@ class FlairEmbeddings(TokenEmbeddings):
             "fi-forward": f"{aws_path}/embeddings-stefan-it/lm-fi-opus-large-forward-v0.1.pt",
             "fi-backward": f"{aws_path}/embeddings-stefan-it/lm-fi-opus-large-backward-v0.1.pt",
             # French
-            "fr-forward": f"{aws_path}/embeddings/lm-fr-charlm-forward.pt",
-            "fr-backward": f"{aws_path}/embeddings/lm-fr-charlm-backward.pt",
+            "fr-forward": f"{hu_path}/embeddings/lm-fr-charlm-forward.pt",
+            "fr-backward": f"{hu_path}/embeddings/lm-fr-charlm-backward.pt",
             # Hebrew
             "he-forward": f"{aws_path}/embeddings-stefan-it/lm-he-opus-large-forward-v0.1.pt",
             "he-backward": f"{aws_path}/embeddings-stefan-it/lm-he-opus-large-backward-v0.1.pt",
