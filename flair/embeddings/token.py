@@ -491,8 +491,8 @@ class FlairEmbeddings(TokenEmbeddings):
             "fi-forward": f"{aws_path}/embeddings-stefan-it/lm-fi-opus-large-forward-v0.1.pt",
             "fi-backward": f"{aws_path}/embeddings-stefan-it/lm-fi-opus-large-backward-v0.1.pt",
             # French
-            "fr-forward": f"{hu_path}/embeddings/lm-fr-charlm-forward.pt",
-            "fr-backward": f"{hu_path}/embeddings/lm-fr-charlm-backward.pt",
+            "fr-forward": f"{hu_path}/lm-fr-charlm-forward.pt",
+            "fr-backward": f"{hu_path}/lm-fr-charlm-backward.pt",
             # Hebrew
             "he-forward": f"{aws_path}/embeddings-stefan-it/lm-he-opus-large-forward-v0.1.pt",
             "he-backward": f"{aws_path}/embeddings-stefan-it/lm-he-opus-large-backward-v0.1.pt",
